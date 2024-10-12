@@ -1,0 +1,12 @@
+env: "local" # local | dev | prod
+http_server:
+  address: "localhost:8080"
+  timeout: 4s # WriteTimeout and ReadTimeout
+  idle_timeout: 60s
+metrics_address: "localhost:8082"
+postgresql:
+  host: "postgres"
+  port: 5432
+  user: "postgres"
+  password: "postgres"
+  database: "postgres"

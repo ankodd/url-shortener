@@ -1,0 +1,23 @@
+services:
+    url-shortener:
+        image: url-shortener
+        restart: always
+        ports:
+            - "8080:8080"
+            - "8082:8082"
+    postgres:
+        image: postgres
+        restart: always
+        ports:
+            - "5432:5432"
+        environment:
+            POSTGRES_PASSWORD: postgres
+    prometheus:
+      image: prom/prometheus:main
+      volumes:
+        - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      ports:
+        - "9090:9090"
+      networks:
+        - my-network
+      container_name: prometheus
